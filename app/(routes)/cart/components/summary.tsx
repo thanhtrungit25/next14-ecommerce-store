@@ -18,6 +18,10 @@ const Summary = () => {
       toast.success('Payment completed.')
       removeAll()
     }
+
+    if (searchParams.get('canceled')) {
+      toast.error('Something went wrong.')
+    }
   }, [searchParams, removeAll])
 
   const totalPrice = items.reduce((total, item) => {
