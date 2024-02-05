@@ -4,13 +4,18 @@ import { Product } from '@/types'
 import Currency from './ui/Currency'
 import Button from './ui/Button'
 import { ShoppingCart } from 'lucide-react'
+import useCart from '@/hooks/use-cart'
 
 interface InfoProps {
   data: Product
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
-  const onAddToCart = () => {}
+  const cart = useCart()
+
+  const onAddToCart = () => {
+    cart.addItem(data)
+  }
 
   return (
     <div>
